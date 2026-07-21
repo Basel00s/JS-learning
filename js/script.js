@@ -22,6 +22,7 @@ var productCategory = document.getElementById("pc");
 var productImg = document.getElementById("img");
 var productDescribtion = document.getElementById("pd");
 function addNewProduct() {
+  var allProducts = [];
   var product = {
     name: productName.value,
     price: Number(productPrice.value),
