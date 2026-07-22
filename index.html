@@ -33,10 +33,10 @@
             <input type="text" list="list" class="form-control" id="pc" placeholder="">
             <label for="pc">Product Category</label>
             <datalist id="list">
-                <option value="Electeronic"></option>
+<option value="Electronic"></option>
                 <option value="Food"></option>
                 <option value="Building tools"></option>
-                <option value="Closis"></option>
+<option value="Clothes"></option>
             </datalist>
         </div>
         <div class="form-floating mb-3">
@@ -47,7 +47,11 @@
             <textarea class="form-control" id="pd"></textarea>
             <label for="pd">Product Describtion</label>
         </div>
-        <button class="btn btn-outline-primary w-100 " onclick="addNewProduct()">Enter</button>
+        <div id="successMsg" class="alert alert-success d-none text-center" role="alert">
+            ✅ Product Added Successfully!
+        </div>
+        <button class="btn btn-outline-primary w-100 mb-1" onclick="addNewProduct()">Enter</button>
+        <button class="btn btn-outline-secondary w-100 mb-1" onclick="show()">Show Products</button>
         <button class="btn btn-outline-danger w-100 " onclick="clr()">Clear</button>
     </div>
 

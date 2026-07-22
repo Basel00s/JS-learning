@@ -16,11 +16,13 @@ var allages = [30, 20, 10, 50, 60];
 //can delete value from specified index
 //can add value from specified index
 //can update value from specified index
+
 var productName = document.getElementById("pn");
 var productPrice = document.getElementById("pp");
 var productCategory = document.getElementById("pc");
 var productImg = document.getElementById("img");
-var productDescribtion = document.getElementById("pd");
+var productDescription = document.getElementById("pd");
+var successMsg = document.getElementById("successMsg");
 var allProducts = [];
 function addNewProduct() {
   var product = {
@@ -28,16 +30,31 @@ function addNewProduct() {
     price: Number(productPrice.value),
     category: productCategory.value,
     img: productImg.value,
-    describtion: productDescribtion.value,
+    description: productDescription.value,
   };
-  allProducts.push(product)
+  allProducts.push(product);
   console.log(allProducts);
+  
+  // Clear all inputs after adding product
+  productName.value = '';
+  productPrice.value = '';
+  productCategory.value = '';
+  productImg.value = '';
+  productDescription.value = '';
+  
+  // Show success message
+  successMsg.classList.remove('d-none');
+  setTimeout(function() {
+    successMsg.classList.add('d-none');
+  }, 2000);
+}
+function show() {
+  console.log(allProducts);
+  
 }
 
 function clr() {
-  productName.value = "";
-  productPrice.value = "";
-  productCategory.value = "";
-  productImg.value = "";
-  productDescribtion.value = "";
+  allProducts.pop();
 }
+// ux => user experience
+//any attribute in any html => u can get a value from it and u can set an value to it
