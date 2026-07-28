@@ -15,14 +15,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <!--font awesome-->
-    <link rel="stylesheet" href="./css/all.min.css">
+
 </head>
 
 <body>
-    
+
     <div class="container">
-        
+
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="pn" placeholder=" ">
             <label for="pn">Product Name</label>
@@ -48,41 +47,34 @@
         <div class="form-floating mb-3">
             <textarea class="form-control" id="pd" placeholder=" " maxlength="200"></textarea>
             <label for="pd">Product Description</label>
-            
+
         </div>
-        
+
         <button class="btn btn-outline-primary w-100 mb-1 ripple-btn" onclick="addNewProduct()" id="addProductBtn">
             <span class="btn-text">Enter Product</span>
             <span class="loading-spinner d-none" id="loadingSpinner"></span>
         </button>
-        <button class="btn btn-outline-secondary w-100 mb-1 ripple-btn" onclick="show()">Show Products</button>
-        <button class="btn btn-outline-danger w-100 ripple-btn" onclick="confirmClear()">Clear</button>
-        <div  id="Product"   class="row mt-5">
+
+        <button class="btn btn-outline-secondary w-100 mb-1 ripple-btn" onclick="display()">Display</button>
+        <button class="btn btn-outline-danger w-100 mb-1 ripple-btn" onclick="clr()">Clear</button>
+
+        <div id="product" class="row mt-5">
             <div class="col-lg-2 col-md-3">
                 <div class="product">
-                    <img class="w-100" src="./imgs/profile.jpg " alt="">
-                    <h2>product name</h2>
-                    <h5>price:20</h5>
-                    <h5>category:tv</h5>
-                    <h5>description</h5>
                 </div>
             </div>
         </div>
-
-
-
-
-        <div class="row">
-            <div class="col-lg-2 col-md-4"> </div>
-        </div>
         
+
+
+
 
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
-    
+
 </body>
 
 </html>

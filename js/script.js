@@ -24,45 +24,58 @@ var productImg = document.getElementById("img");
 var productDescription = document.getElementById("pd");
 var successMsg = document.getElementById("successMsg");
 var allProducts = [];
+
+// addNewProduct creates a new product object from the form inputs,
+// adds it to the allProducts array, clears the form, and shows a success message.
 function addNewProduct() {
   var product = {
     name: productName.value,
     price: Number(productPrice.value),
     category: productCategory.value,
-    img: productImg.value,
+    img: productImg.files,
     description: productDescription.value,
   };
   allProducts.push(product);
   console.log(allProducts);
-  
+
   // Clear all inputs after adding product
-  productName.value = '';
-  productPrice.value = '';
-  productCategory.value = '';
-  productImg.value = '';
-  productDescription.value = '';
-  
-  // Show success message
-  successMsg.classList.remove('d-none');
-  setTimeout(function() {
-    successMsg.classList.add('d-none');
+  productName.value = "";
+  productPrice.value = "";
+  productCategory.value = "";
+  productImg.value = "";
+  productDescription.value = "";
+
+  // Show success message for 2 seconds
+  successMsg.classList.remove("d-none");
+  setTimeout(function () {
+    successMsg.classList.add("d-none");
   }, 2000);
 }
-function show() {
-  console.log(allProducts);
-  
-}
-display()
+
+// display builds HTML for each product and inserts it into the page.
 function display() {
-  var cartona="";
-  for (let i = 0; i < allProducts.length ; i++) {
-    
-    cartona += allProducts[i]
-    
+  var cartona = "";
+  for (let i = 0; i < allProducts.length; i++) {
+    // Optional chaining with ?. avoids errors if img or img[0] is missing,
+    // and || 'default.jpg' returns a fallback name when no file name exists.
+    // This lets the code safely handle products without selected image files.
+    const imgName = allProducts[i].img?.[0]?.name || 'default.jpg';
+    cartona += `
+      <div class="col-lg-2 col-md-3">
+        <div class="product">
+          <img src="./imgs/${imgName}" alt="">
+          <h5>${allProducts[i].name}</h5>
+          <p>${allProducts[i].price} EGP</p>
+          <p>${allProducts[i].category}</p>
+          <p>${allProducts[i].description}</p>
+        </div>
+      </div>
+    `;
   }
   document.getElementById("product").innerHTML = cartona;
 }
 
+// clr removes the last product from the array.
 function clr() {
   allProducts.pop();
 }
