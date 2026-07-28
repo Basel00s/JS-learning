@@ -52,6 +52,16 @@ function show() {
   console.log(allProducts);
   
 }
+display()
+function display() {
+  var cartona="";
+  for (let i = 0; i < allProducts.length ; i++) {
+    
+    cartona += allProducts[i]
+    
+  }
+  document.getElementById("product").innerHTML = cartona;
+}
 
 function clr() {
   allProducts.pop();
