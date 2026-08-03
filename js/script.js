@@ -51,6 +51,7 @@ function addNewProduct() {
   productCategory.value = "";
   productImg.value = "";
   productDescription.value = "";
+  localStorage.setItem("allProducts",allProducts)
 
   
 }
@@ -80,8 +81,9 @@ function display() {
 
 // clr removes the last product from the array.
 function clr() {
-  var index = prompt("enter the index of the item u wanna delete")
-  allProducts.splice(index,1);
+  var index = prompt("enter the order of the item u wanna delete")
+  allProducts.splice((index + 1),1);
+  display();
 }
 // ux => user experience
 //any attribute in any html => u can get a value from it and u can set an value to it
@@ -94,3 +96,17 @@ function clr() {
 
 
 // parameters => variables that ur function depends on
+
+
+//Browser can store your data inside his storage 
+//Browser has it is own memory(storage)
+
+//types of storage => Cookies       session storage    local storage
+
+//size                4KB              5-10MB            5-10MB    
+
+//storage interval  customizable    per session         until u delete it
+
+
+window.localStorage
+window.sessionStorage
